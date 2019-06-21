@@ -1,4 +1,4 @@
-# Tip-bit hub
+# Tip-bit
 
 ### Install
 
