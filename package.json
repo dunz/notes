@@ -1,0 +1,13 @@
+{
+  "name": "tips",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pull": "git pull --allow-unrelated-histories & git pull lab --allow-unrelated-histories",
+    "push": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
