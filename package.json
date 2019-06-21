@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "pull": "git pull hub master --allow-unrelated-histories & git pull lab master --allow-unrelated-histories",
-    "push": "npm run pull & git push hub master & git push lab master"
+    "push": "git push hub master & git push lab master"
   },
   "keywords": [],
   "author": "",
