@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "init": "git remote add hub https://github.com/dunz/notes.git & git remote add lab https://gitlab.com/dunz/notes.git & git remote remove origin",
     "pull": "git pull hub master --allow-unrelated-histories & git pull lab master --allow-unrelated-histories",
     "push": "git push hub master & git push lab master"
   },
