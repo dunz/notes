@@ -1,4 +1,4 @@
-# Tip-bit2
+# Tip-bit
 
 ### Install
 
