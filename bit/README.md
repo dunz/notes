@@ -1,4 +1,4 @@
-# Tip-bit
+# Bit Note
 
 ### Install
 
