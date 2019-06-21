@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "pull": "git pull --allow-unrelated-histories & git pull lab --allow-unrelated-histories",
-    "push": "echo \"Error: no test specified\" && exit 1"
+    "pull": "git pull hub master --allow-unrelated-histories & git pull lab master --allow-unrelated-histories",
+    "push": "npm run pull & git push hub master & git push lab master"
   },
   "keywords": [],
   "author": "",
