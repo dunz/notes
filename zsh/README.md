@@ -13,4 +13,5 @@ cat .zshrc > test.txt
 ## 현재 디렉토리 열기
 ```sh
 open .
+// start . (window)
 ```
