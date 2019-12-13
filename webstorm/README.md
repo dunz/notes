@@ -94,7 +94,7 @@ Editor => Color Scheme => Console Font
 - Line spacing: 3.0
 
 Editor => Color Scheme => Console Colors => ANSI Colors
-- Black: 00000
+- Black: 0A2240
 - Blue: 5394EC
 - Bright Blue: 7EAEF1
 - Bright Cyan: 6CDADA
