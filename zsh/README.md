@@ -15,3 +15,8 @@ cat .zshrc > test.txt
 open .
 // start . (window)
 ```
+
+## 기본 쉘 변경
+```sh
+chsh -s `which zsh`
+```
