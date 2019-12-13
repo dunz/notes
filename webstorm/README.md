@@ -109,4 +109,4 @@ Editor => Color Scheme => Console Colors => ANSI Colors
 - Magenta: AE8ABE
 - Red: FF6B68
 - White: 1F1F1F
-- Yellow: D6946F
+- Yellow: D67A5C
