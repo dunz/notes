@@ -23,7 +23,12 @@ dscacheutil -flushcache
 
 > 바로 적용
 
-혹은 `sudo chmod 666(dw-dw-dw) hosts` 설정 후 `open hosts`로 열어 수정 
+혹은
+```sh
+sudo chmod 777 /private/etc
+sudo chmod 666 /private/etc/hosts
+```
+설정 후 `open hosts`로 열어 수정 
 
 ## VoiceOver 기능 사용하기
 ```sh
