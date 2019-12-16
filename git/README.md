@@ -141,6 +141,12 @@ git reset --hard ORIG_HEAD // reset 취소
 
 ## Git Flow
 
+##### git flow install
+```sh
+curl -L -O https://raw.github.com/nvie/gitflow/develop/contrib/gitflow-installer.sh
+sudo bash gitflow-installer.sh
+```
+
 ##### feature추가시 base branch 지정
 ```sh
 git flow feature start [add-branch] [base-branch]
