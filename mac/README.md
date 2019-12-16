@@ -21,6 +21,8 @@ sudo nano /private/etc/hosts
 dscacheutil -flushcache
 ```
 
+혹은 `sudo chmod 666(dw-dw-dw) hosts` 설정 후 `open hosts`로 열어 수정 
+
 > 바로 적용
 
 ## VoiceOver 기능 사용하기
