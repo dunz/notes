@@ -47,3 +47,6 @@ say [내용] -o [생성파일경로](.mp3, .aiff)
 
 ## 전체화면
 `shift` + `command` + `F`
+
+## 공인인증서 위치
+파인더에서 `command` + `shift` + `g` 입력후 `~/library/Preferences/NPKI` 로 이동
