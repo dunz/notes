@@ -1,22 +1,38 @@
-# 쉘 명령어
+## 쉘 명령어
 
-## 파일내용 클립보드에 복사하기
+### 파일내용 클립보드에 복사하기
 ```sh
 pbcopy < [filename]
 ```
 
-## 파일내용 파일에 복사하기
+### 파일내용 파일에 복사하기
 ```sh
 cat .zshrc > test.txt
 ```
 
-## 현재 디렉토리 열기
+### 현재 디렉토리 열기
 ```sh
 open .
 // start . (window)
 ```
 
-## 기본 쉘 변경
+### 기본 쉘 변경
 ```sh
 chsh -s `which zsh`
 ```
+
+## oh-my-zsh 플러그인 추가하기
+install plugin
+```sh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+add plugin
+```
+plugins=(
+	git
+	dnf
+	zsh-syntax-highlighting
+	zsh-autosuggestions
+)
+```
+
