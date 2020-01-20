@@ -22,11 +22,23 @@ chsh -s `which zsh`
 ```
 
 ## oh-my-zsh 플러그인 추가하기
-install plugin
+### install plugin
+zsh-syntax-highlighting
 ```sh
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
-add plugin
+
+zsh-autosuggestions
+```sh
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+fzf
+```sh
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+```
+
+### add plugin
 ```
 plugins=(
 	git
