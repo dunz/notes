@@ -58,10 +58,10 @@ set [:변수명]=[:값]			// window
 ```
 
 #### 환경변수 영구 설정
-bash: /etc/bash.bashrc 파일 수정
-zsh: ~/.zshrc 파일 수정
+- bash: /etc/bash.bashrc 파일 수정
+- zsh: ~/.zshrc 파일 수정
 
 #### 환경변수 해제
 ```sh
-unset [:]
+unset [:변수명]
 ```
