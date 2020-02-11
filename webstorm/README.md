@@ -110,3 +110,7 @@ Editor => Color Scheme => Console Colors => ANSI Colors
 - Red: FF6B68
 - White: 1F1F1F
 - Yellow: D67A5C
+
+## 단축키
+- 같은 객체 일괄 변경: `Shift` + `F6`
+- 같은 텍스트 동시 선택: `Ctrl` + `Command` + `G`
