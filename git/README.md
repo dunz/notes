@@ -305,9 +305,12 @@ df55c22 commit 1
 > 커밋에서 수정된 내용만을 가져오기 때문에 해당커밋에서 수정된 영역만 정확히 머지해올수 있다.
 
 1. 특정 커밋 체리픽 (연속된 커밋해시 입력시 연속적으로 체리픽 할 수 있다.)
+
 `git cherry-pick 5d4ded1` or<br>
 `git cherry-pick 36b79c2 30c92bc 86c13c3 ef721b7 5d4ded1`
+
 2. 연속적으로 체리픽 하다가 충돌이 날 경우 수정 후 commited로 옮겨놓은 후 연속 실행한다.
+
 ```sh
 $> git add .
 $> git cherry-pick --continue
