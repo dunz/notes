@@ -285,5 +285,14 @@ df55c22 commit 1
 ##### 단점
 - 충돌이 많을 경우 여러번에 걸쳐서 연속적으로 병합작업을 해야해서 번거롭다.
 
-
+#### Merge Squash
+1. `master`에서 `issue` 브랜치 merge
+> master$> `git merge issue --squash`
+2. 완료 > 커밋이 후에 삽입되고 하나의 커밋으로 머지된다.
+```sh
+6632599 (HEAD -> master) commit 3~4
+f54c634 commit 5
+2ce4090 commit 2
+df55c22 commit 1
+```
 
