@@ -229,3 +229,29 @@ fatal: refusing to merge unrelated histories  // 관련없는 히스토리의 �
 git pull origin master --allow-unrelated-histories // 이 옵션을 주게 되면 충돌이 나면서 merge할수있도록 pull받아진다.
 // 충돌을 해결 한후 push 하면 되는 것이다.
 ```
+
+## Merge, Rebase, Squash merge 비교
+### 상황
+1. `master`에서 `commit 1`, `commit 2` 커밋
+2. `master`에서 `issue` 브랜치 생성
+3. `issue`에서 `commit 3`, `commit 4` 커밋
+4. `master`에서 `commit 5` 커밋 (`commit 3`의 수정 부분과 `commit 5`는 수정 라인이 같음, 충돌상황)
+
+#### Merge
+1. `master`에서 `issue` 브랜치 merge
+> master$ `git merge issue`
+2. 커밋이 생성된 시간 기준으로 중간에 삽입되고 충돌병합 커밋이 추가된다.
+```sh
+$> git log
+$> 0edf021 (HEAD -> master) resolve conflict
+$> fc9507c commit 5
+$> 05a4118 (issue) commit 4
+$> e8759fc commit 3
+$> 170958f commit 2
+$> df55c22 commit 1
+```
+
+#### Rebase
+
+
+
