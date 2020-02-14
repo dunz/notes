@@ -263,13 +263,13 @@ df55c22 commit 1
 > $> `git rebase master issue` (`master`를 `issue`의 base로 설정하여 `issue`에 머지한다.) or<br>
 > issue$> `git rebase master` (`master`를 현재브랜치(`issue`)의 base로 설정하여 현재브랜치(`issue`)에 머지한다.)
 2. `commit 3` 머지 과정에서 충돌 해결후 git add (별도의 rebase용 브랜치에서 일련의 작업이 실행됨)
-> fc9507cR> `git add README.md` or `git add .`
+> fc9507cR$> `git add README.md` or `git add .`
 3. rebase 계속 진행
-> fc9507cR>  `git rebase --continue`
+> fc9507cR$>  `git rebase --continue`
 2. `commit 4` 머지 과정에서 충돌 해결후 git add (별도의 rebase용 브랜치에서 일련의 작업이 실행됨)
-> fc9507cR> `git add README.md` or `git add .`
+> fc9507cR$> `git add README.md` or `git add .`
 4. rebase 계속 진행
-> fc9507cR>  `git rebase --continue`
+> fc9507cR$>  `git rebase --continue`
 5. 완료 > `commit 3`과 `commit 4`가 `commit 5`보다 먼저 생성되었지만 `master`에서 `commit 5`커밋이 생성된 이후에 `commit 3`과 `commit 4`가 생성된 것으로 재정렬 되며 resolve conflict 머지는 추가로 생기지 않는다.
 ```sh
 bac3d58 (HEAD -> issue) commit 4
