@@ -235,24 +235,40 @@ git pull origin master --allow-unrelated-histories // 이 옵션을 주게 되�
 1. `master`에서 `commit 1`, `commit 2` 커밋
 2. `master`에서 `issue` 브랜치 생성
 3. `issue`에서 `commit 3`, `commit 4` 커밋
-4. `master`에서 `commit 5` 커밋 (`commit 3`의 수정 부분과 `commit 5`는 수정 라인이 같음, 충돌상황)
+4. `master`에서 `commit 5` 커밋 (`commit 3`의 수정 부분과 `commit 5`는 수정 라인이 같음, `README.md`충돌상황)
 
 #### Merge
 1. `master`에서 `issue` 브랜치 merge
 > master$> `git merge issue`
 2. 커밋이 생성된 시간 기준으로 중간에 삽입되고 충돌병합 커밋이 추가된다.
 ```sh
-$> git log
-
-$> 0edf021 (HEAD -> master) resolve conflict
-$> fc9507c commit 5
-$> 05a4118 (issue) commit 4
-$> e8759fc commit 3
-$> 170958f commit 2
-$> df55c22 commit 1
+0edf021 (HEAD -> master) resolve conflict
+fc9507c commit 5
+05a4118 (issue) commit 4
+e8759fc commit 3
+170958f commit 2
+df55c22 commit 1
 ```
 
 #### Rebase
+1. rebase 할 브랜치로 이동하여 `rebase`실행
+> issue$> `git rebase master`
+2. `commit 3` 머지 과정에서 충돌 해결후 git add (별도의 rebase용 브랜치에서 일련의 작업이 실행됨)
+> fc9507cR> `git add README.md` or `git add .`
+3. rebase 계속 진행
+> fc9507cR>  `git rebase --continue`
+2. `commit 4` 머지 과정에서 충돌 해결후 git add (별도의 rebase용 브랜치에서 일련의 작업이 실행됨)
+> fc9507cR> `git add README.md` or `git add .`
+4. rebase 계속 진행
+> fc9507cR>  `git rebase --continue`
+5. 완료
+```sh
+bac3d58 (HEAD -> issue) commit 4
+7eadde3 commit 3
+fc9507c (master) commit 5
+170958f commit 2
+df55c22 commit 1
+```
 
 
 
