@@ -243,6 +243,7 @@ git pull origin master --allow-unrelated-histories // 이 옵션을 주게 되�
 2. 커밋이 생성된 시간 기준으로 중간에 삽입되고 충돌병합 커밋이 추가된다.
 ```sh
 $> git log
+
 $> 0edf021 (HEAD -> master) resolve conflict
 $> fc9507c commit 5
 $> 05a4118 (issue) commit 4
