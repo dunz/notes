@@ -240,7 +240,7 @@ git pull origin master --allow-unrelated-histories // 이 옵션을 주게 되�
 #### Merge
 1. `master`에서 `issue` 브랜치 merge
 > master$> `git merge issue`
-2. 커밋이 생성된 시간 기준으로 중간에 삽입되고 충돌병합 커밋이 추가된다.
+2. 완료 > 커밋이 생성된 시간 기준으로 중간에 삽입되고 충돌병합 커밋이 추가된다.
 ```sh
 0edf021 (HEAD -> master) resolve conflict
 fc9507c commit 5
@@ -261,7 +261,7 @@ df55c22 commit 1
 > fc9507cR> `git add README.md` or `git add .`
 4. rebase 계속 진행
 > fc9507cR>  `git rebase --continue`
-5. 완료
+5. 완료 > `commit 3`과 `commit 4`가 `commit 5`보다 먼저 생성되었지만 `master`에서 `commit 5`커밋이 생성된 이후에 `commit 3`과 `commit 4`가 생성된 것으로 재정렬 되며 resolve conflict 머지는 추가로 생기지 않는다.
 ```sh
 bac3d58 (HEAD -> issue) commit 4
 7eadde3 commit 3
