@@ -259,7 +259,7 @@ df55c22 commit 1
 
 #### Rebase
 1. rebase 할 브랜치로 이동하여 `rebase`실행
-> issue$> ` git rebase issue master` or (`issue`를 `master`의 base로 설정하여 `master`에 머지한다.)\n
+> issue$> ` git rebase issue master` or (`issue`를 `master`의 base로 설정하여 `master`에 머지한다.)<br>
 > issue$> ` git rebase master issue` (`master`를 `issue`의 base로 설정하여 `issue`에 머지한다.)
 2. `commit 3` 머지 과정에서 충돌 해결후 git add (별도의 rebase용 브랜치에서 일련의 작업이 실행됨)
 > fc9507cR> `git add README.md` or `git add .`
