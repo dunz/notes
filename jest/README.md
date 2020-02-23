@@ -15,6 +15,8 @@ yarn jest --init    // 초기환경 구성 jest.config.js 생성됨
 
 ### 바벨 사용
 설치 후 `babel.config.js`파일을 구성할 경우 jest에서 ES6사용 가능하다.
+
+다만 `jest.config.js`에 `transform` 프로퍼티가 선언되있을경우 `babel-jest`를 별도 선언해주어야한다.
 ```sh
 yarn add -D babel-jest @babel/core @babel/preset-env
 ```
