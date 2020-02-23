@@ -219,6 +219,7 @@ test('this test will not run', () => {
 ```
 
 ## mock 함수 사용
+### 기본 사용법
 `jest.fn(x => 42 + x);` jest.fn()으로 만든다
 
 ```js
@@ -243,5 +244,127 @@ it('mock test', () => {
 
     // 목킹 함수의 두번째 호출 리턴값은 42다.
     expect(mockCallback.mock.results[1].value).toBe(43);
+})
+```
+
+### return value mocking
+```js
+const myMock = jest.fn();
+console.log(myMock());
+// > undefined
+
+myMock
+  .mockReturnValueOnce(10)
+  .mockReturnValueOnce('x')
+  .mockReturnValue(true);
+
+console.log(myMock(), myMock(), myMock(), myMock());
+// > 10, 'x', true, true
+```
+### promise resolved value moking
+```js
+// users.js
+import axios from 'axios';
+
+class Users {
+  static all() {
+    return axios.get('/users.json').then(resp => resp.data);
+  }
+}
+
+export default Users;
+```
+
+```js
+// users.test.js
+import axios from 'axios';
+import Users from './users';
+
+jest.mock('axios');
+
+test('should fetch users', () => {
+  const users = [{name: 'Bob'}];
+  const resp = {data: users};
+  axios.get.mockResolvedValue(resp);
+
+  // or you could use the following depending on your use case:
+  // axios.get.mockImplementation(() => Promise.resolve(resp))
+
+  return Users.all().then(data => expect(data).toEqual(users));
+});
+```
+
+### mocking 직접 구현
+fn 내부 구현
+```js
+const myMockFn = jest.fn(cb => cb(null, true));
+
+myMockFn((err, val) => console.log(val));
+// > true
+```
+mockImplementation
+```js
+// foo.js
+module.exports = function() {
+  // some implementation;
+};
+
+// test.js
+jest.mock('../foo'); // this happens automatically with automocking
+const foo = require('../foo');
+
+// foo is a mock function
+foo.mockImplementation(() => 42);
+foo();
+// > 42
+```
+
+mockImplementationOnce 활용 default 처리
+```js
+const myMockFn = jest
+  .fn(() => 'default')
+  .mockImplementationOnce(() => 'first call')
+  .mockImplementationOnce(() => 'second call');
+
+console.log(myMockFn(), myMockFn(), myMockFn(), myMockFn());
+// > 'first call', 'second call', 'default', 'default'
+```
+
+channing mocking을 위한 this 구성
+```js
+const myObj = {
+  myMethod: jest.fn().mockReturnThis(),
+};
+
+// is the same as
+
+const otherObj = {
+  myMethod: jest.fn(function() {
+    return this;
+  }),
+};
+```
+
+mock name 설정
+```js
+const myMockFn = jest
+  .fn()
+  .mockReturnValue('default')
+  .mockImplementation(scalar => 42 + scalar)
+  .mockName('add42');
+```
+
+custome machers
+```js
+it('custom matcher', () => {
+    const mockFunc = jest.fn();
+    mockFunc();
+    mockFunc(1,2);
+    mockFunc(3,4);
+
+    expect(mockFunc).toHaveBeenCalled();       // 적어도 한번 호출되었다.
+    expect(mockFunc).toHaveBeenCalledWith(1, 2);    // 1, 2 인자로 적어도 한번 호추되었다.
+    expect(mockFunc).toHaveBeenLastCalledWith(3, 4);  // 마지막 호출은 3, 4인자로 호출되었다.
+    expect(mockFunc).toMatchSnapshot(); // 목함수 호출 스냅샷
 })
 ```
