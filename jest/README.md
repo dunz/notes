@@ -217,3 +217,31 @@ test('this test will not run', () => {
   expect('A').toBe('A');
 });
 ```
+
+## mock 함수 사용
+`jest.fn(x => 42 + x);` jest.fn()으로 만든다
+
+```js
+import {foreach} from '../modules/foreach';
+
+const mockCallback = jest.fn(x => 42 + x);
+
+it('mock test', () => {
+    foreach([0, 1], mockCallback);
+    
+    // 목킹 함수가 두번 호출되었다.
+    expect(mockCallback.mock.calls.length).toBe(2);
+
+    // 목킹 함수의 첫번째 호출의 첫번째 인자는 0이다.
+    expect(mockCallback.mock.calls[0][0]).toBe(0);
+
+    // 목킹 함수의 두번째 호출의 첫번째 인자는 1이다.
+    expect(mockCallback.mock.calls[1][0]).toBe(1);
+
+    // 목킹 함수의 첫번째 호출 리턴값은 42다.
+    expect(mockCallback.mock.results[0].value).toBe(42);
+
+    // 목킹 함수의 두번째 호출 리턴값은 42다.
+    expect(mockCallback.mock.results[1].value).toBe(43);
+})
+```
