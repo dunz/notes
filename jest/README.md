@@ -23,14 +23,7 @@ yarn add -D babel-jest @babel/core @babel/preset-env
 ```js
 module.exports = {
   presets: [
-    [
-      '@babel/preset-env',
-      {
-        targets: {
-          node: 'current',
-        },
-      },
-    ],
+    ['@babel/preset-env', {targets: {node: 'current'}}]
   ],
 };
 ```
