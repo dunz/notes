@@ -35,9 +35,9 @@ module.exports = {
 
 babel.config.js return type을 함수로 지정할 수 있고
 
-첫번째 인자인 api의 `api.env('test')`(process.env.NODE_ENV === 'test')로 현재 환경변수가 test로 설정되어있는지 받아와서 환경별
+첫번째 인자인 api의 `api.env('test')`(process.env.NODE_ENV === 'test')로 
 
-조건처리를 해줄 수 있다.
+현재 환경변수가 test로 설정되어있는지 받아와서 환경별 조건처리를 해줄 수 있다.
 
 ```js
 module.exports = api => {
