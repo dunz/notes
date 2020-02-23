@@ -1,5 +1,64 @@
 # Jest
 
+## Install
+
+### 설치
+```sh
+yarn add -D jest    // 설치
+```
+
+### 구성
+```sh
+yarn jest --init    // 초기환경 구성 jest.config.js 생성됨
+```
+> `jest.config.js` 는 default로 ROOT 경로 필수
+
+### 바벨 사용
+설치 후 `babel.config.js`파일을 구성할 경우 jest에서 ES6사용 가능하다.
+```sh
+yarn add -D babel-jest @babel/core @babel/preset-env
+```
+```js
+module.exports = {
+  presets: [
+    [
+      '@babel/preset-env',
+      {
+        targets: {
+          node: 'current',
+        },
+      },
+    ],
+  ],
+};
+```
+
+babel.config.js return type을 함수로 지정할 수 있고
+
+첫번째 인자인 api의 `api.env('test')`(process.env.NODE_ENV === 'test')로 현재 환경변수가 test로 설정되어있는지 받아와서 환경별
+
+조건처리를 해줄 수 있다.
+
+```js
+module.exports = api => {
+    const isTest = api.env('test');
+    
+    return {
+        presets: [
+            [
+                '@babel/preset-env',
+                {
+                    targets: {
+                        node: 'current',
+                    },
+                },
+            ],
+        ],
+    };
+}
+```
+
+
 ## Matchers
 
 ### Truthiness
