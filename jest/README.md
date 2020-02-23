@@ -60,6 +60,26 @@ module.exports = api => {
 }
 ```
 
+### typescript 사용
+```sh
+yarn add --dev @babel/preset-typescript   // 설치
+```
+
+`babel.config.js` 바벨 설정 추가
+```js
+module.exports = api => {
+    const isTest = api.env('test');
+    
+    return {
+        presets: [
+            ['@babel/preset-env', {targets: {node: 'current'}}],
+            '@babel/preset-typescript'
+        ]
+    };
+};
+```
+
+
 
 ## Matchers
 
