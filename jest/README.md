@@ -368,3 +368,24 @@ it('custom matcher', () => {
     expect(mockFunc).toMatchSnapshot(); // 목함수 호출 스냅샷
 })
 ```
+
+## 비대칭 매처
+```js
+it('will check the matchers and pass', () => {
+    const user = {
+        createdAt: new Date(),
+        id: Math.floor(Math.random() * 20),
+        name: 'LeBron James',
+    };
+
+    expect(user).toMatchSnapshot({
+        createdAt: expect.any(Date),
+        id: expect.any(Number),
+    });
+});
+```
+> 스냅샷 테스트시 해당 프로퍼티는 비대칭 매퍼로 적용하면 테스트가 실패하지 않는다.
+### 종류
+- Date: expect.any(Date)
+- Number: expect.any(Number)
+
