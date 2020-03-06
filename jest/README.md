@@ -443,3 +443,58 @@ test('calls the callback after 1 second', () => {
 });
 ```
 `jest.runAllTimers()`를 호출함으로서 모든 타이머가 끝난 시점으로 빨리 감을수 있다.
+
+### 타이머가 재귀적으로 생성될경우 현재 생성되어 보류중인 타이머만 빨리 감기
+```js
+// infiniteTimerGame.js
+'use strict';
+
+function infiniteTimerGame(callback) {
+  console.log('Ready....go!');
+
+  setTimeout(() => {
+    console.log("Time's up! 10 seconds before the next game starts...");
+    callback && callback();
+
+    // Schedule the next game in 10 seconds
+    setTimeout(() => {
+      infiniteTimerGame(callback);
+    }, 10000);
+  }, 1000);
+}
+
+module.exports = infiniteTimerGame;
+```
+```js
+// __tests__/infiniteTimerGame-test.js
+'use strict';
+
+jest.useFakeTimers();
+
+describe('infiniteTimerGame', () => {
+  test('schedules a 10-second timer after 1 second', () => {
+    const infiniteTimerGame = require('../infiniteTimerGame');
+    const callback = jest.fn();
+
+    infiniteTimerGame(callback);
+
+    // At this point in time, there should have been a single call to
+    // setTimeout to schedule the end of the game in 1 second.
+    expect(setTimeout).toHaveBeenCalledTimes(1);
+    expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 1000);
+
+    // Fast forward and exhaust only currently pending timers
+    // (but not any new timers that get created during that process)
+    jest.runOnlyPendingTimers();
+
+    // At this point, our 1-second timer should have fired it's callback
+    expect(callback).toBeCalled();
+
+    // And it should have created a new timer to start the game over in
+    // 10 seconds
+    expect(setTimeout).toHaveBeenCalledTimes(2);
+    expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 10000);
+  });
+});
+```
+이럴경우 `jest.runAllTimers()`를 호출하면 무한루프에 빠지게 되니 `jest.runOnlyPendingTimers()`를 호출해준다.
