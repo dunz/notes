@@ -422,3 +422,24 @@ test('waits 1 second before ending the game', () => {
 });
 ```
 `jest.useFakeTimers()`를 호출함으로서 setTimeout의 목테스트를 수행할 수 있따.
+
+### 타이머 빨리감기
+```js
+test('calls the callback after 1 second', () => {
+  const timerGame = require('../timerGame');
+  const callback = jest.fn();
+
+  timerGame(callback);
+
+  // At this point in time, the callback should not have been called yet
+  expect(callback).not.toBeCalled();
+
+  // Fast-forward until all timers have been executed
+  jest.runAllTimers();
+
+  // Now our callback should have been called!
+  expect(callback).toBeCalled();
+  expect(callback).toHaveBeenCalledTimes(1);
+});
+```
+`jest.runAllTimers()`를 호출함으로서 모든 타이머가 끝난 시점으로 빨리 감을수 있다.
