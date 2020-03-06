@@ -370,6 +370,53 @@ it('custom matcher', () => {
 })
 ```
 
+### mocking 종류
+### jest.mock('모듈경로', 함수)
+> 해당 모듈의 메소드는 모두 mock으로 호출됨, 원본메소드가 실행되지 않기 때문에 사용하는 메소드는 전부 리턴하는 mock객체 내부에 지정해주어야 한다.
+```js
+const mockPlaySoundFile = jest.fn();
+const mockTest = jest.fn();
+jest.mock('../modules/sound-player', () => jest.fn().mockImplementation(() => ({
+    playSoundFile: mockPlaySoundFile,       // playSoundFile 원본 메소드명
+    test: mockTest                          // test 원본 메소드명
+})));
+```
+
+### jest.spyOn(모듈, '메소드명')
+> 모듈에 지정한 메소드에 spy를 심는다. 원본 메소드가 호출되고, 호출정보를 받아올수 있다.
+```js
+const video = require('./video');
+
+test('plays video', () => {
+  const spy = jest.spyOn(video, 'play');
+  const isPlaying = video.play();
+
+  expect(spy).toHaveBeenCalled();
+  expect(isPlaying).toBe(true);
+
+  spy.mockRestore();
+});
+```
+
+### jest.fn(함수)
+> mock함수를 생성한다. mock.calls 관련 호출정보값도 받아올 수있다.
+```js
+const mockCallback = jest.fn(x => 42 + x);
+forEach([0, 1], mockCallback);
+
+// The mock function is called twice
+expect(mockCallback.mock.calls.length).toBe(2);
+
+// The first argument of the first call to the function was 0
+expect(mockCallback.mock.calls[0][0]).toBe(0);
+
+// The first argument of the second call to the function was 1
+expect(mockCallback.mock.calls[1][0]).toBe(1);
+
+// The return value of the first call to the function was 42
+expect(mockCallback.mock.results[0].value).toBe(42);
+```
+
 ## 비대칭 매처
 ```js
 it('will check the matchers and pass', () => {
