@@ -531,5 +531,8 @@ it('calls the callback after 1 second via advanceTimersByTime', () => {
   expect(callback).toBeCalled();
   expect(callback).toHaveBeenCalledTimes(1);
 });
-`jest.advanceTimersByTime(1000)`를 호출하여 1초 뒤로 돌릴수 있다.
 ```
+
+`jest.advanceTimersByTime(1000)`를 호출하여 1초 뒤로 돌릴수 있다.
+
+> 테스트 중 모든 타이머 돌리기 `jest.clearAllTimers().`
