@@ -390,3 +390,35 @@ it('will check the matchers and pass', () => {
 - Date: expect.any(Date)
 - Number: expect.any(Number)
 
+## 타이머 테스트
+```js
+// timerGame.js
+'use strict';
+
+function timerGame(callback) {
+  console.log('Ready....go!');
+  setTimeout(() => {
+    console.log("Time's up -- stop!");
+    callback && callback();
+  }, 1000);
+}
+
+module.exports = timerGame;
+// __tests__/timerGame-test.js
+```
+
+```js
+// __tests__/timerGame-test.js
+'use strict';
+
+jest.useFakeTimers();
+
+test('waits 1 second before ending the game', () => {
+  const timerGame = require('../timerGame');
+  timerGame();
+
+  expect(setTimeout).toHaveBeenCalledTimes(1);
+  expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 1000);
+});
+```
+`jest.useFakeTimers()`를 호출함으로서 setTimeout의 목테스트를 수행할 수 있따.
