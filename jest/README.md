@@ -96,9 +96,10 @@ module.exports = api => {
 - expect(fn).toThrow('' or //): 함수 실행시 에러를 던지는지 검사, 에러메시지를 넘겨 일치하는지 검사 가능
 
 ## Testing Asynchronous Code
-일반적으로 비동기 코드를 실행하기 전에 테스트가 끝나버린다.
+일반적으로 코드를 실행하기 전에 테스트가 끝나버린다.
 
 비동기 완료 콜백 실행 후까지 테스트를 미루기 위해 test함수의 인자값으로 done을 추가하여 비동기 콜백에서 테스트 완료 후 done함수를 실행해주어야 한다.
+추가로 expect 개수만큼 `expect.assertions(1)`를 명시적으로 지정해주는것이 좋다.
 
 ```js
 test('the data is peanut butter', done => {
