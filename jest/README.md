@@ -498,3 +498,38 @@ describe('infiniteTimerGame', () => {
 });
 ```
 이럴경우 `jest.runAllTimers()`를 호출하면 무한루프에 빠지게 되니 `jest.runOnlyPendingTimers()`를 호출해준다.
+
+### 타이머 시간값 지정하여 빨리감기
+```js
+// timerGame.js
+'use strict';
+
+function timerGame(callback) {
+  console.log('Ready....go!');
+  setTimeout(() => {
+    console.log("Time's up -- stop!");
+    callback && callback();
+  }, 1000);
+}
+
+module.exports = timerGame;
+```
+```js
+it('calls the callback after 1 second via advanceTimersByTime', () => {
+  const timerGame = require('../timerGame');
+  const callback = jest.fn();
+
+  timerGame(callback);
+
+  // At this point in time, the callback should not have been called yet
+  expect(callback).not.toBeCalled();
+
+  // Fast-forward until all timers have been executed
+  jest.advanceTimersByTime(1000);
+
+  // Now our callback should have been called!
+  expect(callback).toBeCalled();
+  expect(callback).toHaveBeenCalledTimes(1);
+});
+`jest.advanceTimersByTime(1000)`를 호출하여 1초 뒤로 돌릴수 있다.
+```
