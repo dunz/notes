@@ -65,3 +65,24 @@ set [:변수명]=[:값]			// window
 ```sh
 unset [:변수명]
 ```
+
+## 윈도우에서 zsh 설치 절차
+1. windows subsystem enable하기
+  1. 윈도우 검색 powershell 실행
+  2. state 확인: `Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
+  3. disable일 경우 enable설정: `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
+  4. 재시작
+2. ubuntu 설치하기
+  > window store 에서 linux검색 후 ubuntu설치 실행 
+3. zsh 설치
+  > `sudo apt-get install zsh` 명령어 실행
+4. Oh My Zsh 설치
+  > `sh -c "$(curl –fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+5. Powerline fonts 설정
+  1. https://github.com/powerline/fonts
+  2. fonts-master --- fonts-master
+  3. Powershell as an Admin
+  4. Stand down the execution policy:
+  5. Set-ExecutionPolicy Bypass --- yes
+  6. .\install.ps1
+  7. Set-ExecutionPolicy Default
