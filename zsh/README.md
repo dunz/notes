@@ -77,7 +77,7 @@ unset [:변수명]
 3. zsh 설치
   > `sudo apt-get install zsh` 명령어 실행
 4. Oh My Zsh 설치
-  > `sh -c "$(curl –fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)`
+  > `sh -c "$(curl –fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 5. Powerline fonts 설정
   1. https://github.com/powerline/fonts
   2. fonts-master --- fonts-master
