@@ -68,11 +68,10 @@ unset [:변수명]
 
 ## 윈도우에서 zsh 설치 절차
 1. windows subsystem enable하기
-
-  1. 윈도우 검색 powershell 실행
-  2. state 확인: `Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
-  3. disable일 경우 enable설정: `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
-  4. 재시작
+	1. 윈도우 검색 powershell 실행
+	2. state 확인: `Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
+	3. disable일 경우 enable설정: `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`
+	4. 재시작
 2. ubuntu 설치하기
   > window store 에서 linux검색 후 ubuntu설치 실행 
 3. zsh 설치
