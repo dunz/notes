@@ -183,3 +183,19 @@ const infiniteCurry = (fn, seed) => {
 const iSum = infiniteCurry((x, y) => x + y, 0);
 console.log(iSum(1)(3, 4)(5, 6)(7, 8, 9)()); // 43
 ```
+
+### 피보나치 수열 (feat. 제너레이터)
+```js
+function* fibonacci(n = 0): IterableIterator<number> {
+  let [a, b] = [0, 1];
+  for (let i = 0; i < n; i++) {
+    yield a;
+    [a, b] = [b, a + b];
+  }
+}
+
+for (const fib of fibonacci(10)) {
+  console.log(fib);
+}
+```
+
