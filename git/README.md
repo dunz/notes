@@ -61,10 +61,18 @@ git reflog  // reference log 보기
 ```
 
 ## diff
-#####특정 commit간의 차이 확인
+##### 특정 commit간의 차이 확인
 ```sh
 git diff [commitID1]..[commitID2] +++ 기준이 commitID2로 비교
 git diff [branch1]..[branch2]   +++기준이 branch2로 비교
+```
+
+##### 특정 branch간의 차이 확인
+```sh
+git diff [:branch]...[commitID2] +++ 기준이 commitID2로 비교
+git diff [:branch]...[branch2]   +++기준이 branch2로 비교
+git diff --name-only [:remote]/[:branch]...[:branch]			// remote 브랜치와 비교
+git diff --name-only [:remote]/[:branch]...[:branch] | grep .ts$
 ```
 
 ## Show
