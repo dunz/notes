@@ -331,3 +331,9 @@ $> git add .
 $> git cherry-pick --continue
 ```
 3. 커밋로그 수정
+
+### `/path/.git/index.lock': File exists` 에러 해결
+> .git 파일 삭제를 해주어야 한다.
+```sh
+rm -f ./.git/index.lock
+```
