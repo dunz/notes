@@ -321,7 +321,7 @@ df55c22 commit 1
 
 ```sh
 $> git cherry-pick 5d4ded1 // or
-$> git cherry-pick 36b79c2 30c92bc 86c13c3 ef721b7 5d4ded1
+$> git cherry-pick 36b79c2 30c92bc 86c13c3 ef721b7 5d4ded1		// 오래된 커밋부터 최신커밋 순으로 추가해야한다.
 ```
 
 2. 연속적으로 체리픽 하다가 충돌이 날 경우 수정 후 commited로 옮겨놓은 후 연속 실행한다.
