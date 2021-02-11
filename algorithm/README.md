@@ -93,3 +93,25 @@ const bubbleSort = function(array) {
 
 bubbleSort([5,1,7,4,6,3,2,8]);
 ```
+
+## 선택 정렬 O(n^2) - Selection Sort
+```js
+const selectionSort = function(array) {
+  const length = array.length;
+  let minIndex, temp, i, j;
+  for (i = 0; i < length - 1; i++) { // 처음부터 훑으면서
+    minIndex = i;
+    for (j = i + 1; j < length; j++) { // 최솟값의 위치를 찾음
+      if (array[j] < array[minIndex]) {
+        minIndex = j;
+      }
+    }
+    temp = array[minIndex]; // 최솟값을 저장
+    array[minIndex] = array[i];
+    array[i] = temp; // 최솟값을 제일 앞으로 보냄
+  }
+  return array;
+};
+
+selectionSort([5,1,4,7,2,6,8,3]); // [1,2,3,4,5,6,7,8]
+```
