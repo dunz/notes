@@ -27,7 +27,7 @@ const func = (a, b) => {
 func(15, 20)
 ```
 
-## 삽입정렬 O(n^2) - Insertsion Sort
+## 삽입정렬 O(n^2) - Insertion Sort
 ```js
 const insertionSort = function(array) {
   let i = 1, j, temp;
