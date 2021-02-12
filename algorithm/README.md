@@ -250,24 +250,21 @@ class LinkedList {
   }
   remove(position) {
     let cursor = this.head,
-      prev,
-      remove;
+      prev;
 
     if (position <= 0) {
-      remove = this.head;
-      this.head = remove.next;
+      this.head = cursor.next;
     } else {
       for (let i = 0; i < position; i++) {
         if (!cursor.next) break;
         prev = cursor;
         cursor = cursor.next;
       }
-      remove = cursor;
-      prev.next = remove.next;
+      prev.next = cursor.next;
     }
 
     this.length--;
-    return remove;
+    return cursor;
   }
 }
 class Node {
@@ -289,4 +286,5 @@ list.search(0); // 1
 list.search(2); // 3
 list.remove(1);
 list.length; // 2
+
 ```
