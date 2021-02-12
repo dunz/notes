@@ -211,3 +211,82 @@ const radixLSD = function(array, d) {
 
 radixLSD([125,383,274,96,0,9,81,72], 3); // [0,9,72,81,96,125,274,383]
 ```
+
+## 단일 연결 리스트 - Single Linked List
+```js
+class LinkedList {
+  length = 0;
+  head = null;
+
+  constructor(data) {
+    if (data) {
+      this.head = new Node(data);
+      this.length++;
+    }
+  }
+  add(data) {
+    const node = new Node(data);
+    let cursor = this.head;
+
+    if (!cursor) {
+      this.head = node;
+    } else {
+      while (cursor.next) {
+        cursor = cursor.next;
+      }
+      cursor.next = node;
+    }
+
+    this.length++;
+    return node;
+  }
+  search(position) {
+    let cursor = this.head;
+    for (let i = 0; i < position; i++) {
+      if (!cursor.next) break;
+      cursor = cursor.next;
+    }
+    return cursor.data;
+  }
+  remove(position) {
+    let cursor = this.head,
+      prev,
+      remove;
+
+    if (position <= 0) {
+      remove = this.head;
+      this.head = this.head.next;
+    } else {
+      for (let i = 0; i < position; i++) {
+        if (!cursor.next) break;
+        prev = cursor;
+        cursor = cursor.next;
+      }
+      remove = cursor;
+      prev.next = remove.next;
+    }
+
+    this.length--;
+    return remove;
+  }
+}
+class Node {
+  data: null;
+  next: null;
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
+}
+
+var list = new LinkedList();
+console.log(list);
+list.add(1);
+list.add(2);
+list.add(3);
+list.length; // 3
+list.search(0); // 1
+list.search(2); // 3
+list.remove(1);
+list.length; // 2
+```
