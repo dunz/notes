@@ -287,3 +287,45 @@ list.search(2); // 3
 list.remove(1);
 list.length; // 2
 ```
+
+## 스택 - Stack
+```js
+class Stack {
+  top = null;
+  count = 0;
+
+  push(data) {
+    const node = new Node(data);
+    node.next = this.top;
+    this.top = node;
+    return ++this.count;
+  }
+  pop() {
+    if (!this.top) return false;
+    const data = this.top.data;
+    this.top = this.top.next;
+    this.count--;
+    return data;
+  }
+  stackTop() {
+    return this.top.data;
+  }
+}
+class Node {
+  data = null;
+  next = null;
+
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
+}
+
+var stack = new Stack();
+console.log(stack);
+stack.push(1); // 1
+stack.push(3); // 2
+stack.push(5); // 3
+stack.pop(); // 5
+stack.stackTop(); // 3
+```
