@@ -302,19 +302,19 @@ class Stack {
   }
   pop() {
     if (!this.top) return false;
-    const data = this.top.data;
-    this.top = this.top.next;
+    const { data, next } = this.top;
+    this.top = next;
     this.count--;
     return data;
   }
   stackTop() {
-    return this.top.data;
+    return this.top?.data;
   }
 }
 class Node {
   data = null;
   next = null;
-
+  
   constructor(data) {
     this.data = data;
     this.next = null;
