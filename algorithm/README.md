@@ -255,7 +255,7 @@ class LinkedList {
 
     if (position <= 0) {
       remove = this.head;
-      this.head = this.head.next;
+      this.head = remove.next;
     } else {
       for (let i = 0; i < position; i++) {
         if (!cursor.next) break;
