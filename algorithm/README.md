@@ -329,3 +329,49 @@ stack.push(5); // 3
 stack.pop(); // 5
 stack.stackTop(); // 3
 ```
+
+## 큐 - Queue
+```js
+class Queue {
+  count = 0;
+  head = null;
+  rear = null;
+
+  enqueue(data) {
+    const node = new Node(data);
+    if (!this.head) {
+      this.head = node;
+    } else {
+      this.rear.next = node;
+    }
+    this.rear = node;
+    return ++this.count;
+  }
+  dequeue() {
+    if (!this.head) return false;
+    const { data, next } = this.head;
+    this.head = next;
+    this.count--;
+    return data;
+  }
+  front() {
+    return this.head?.data;
+  }
+}
+class Node {
+  data = null;
+  next = null;
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
+}
+
+var queue = new Queue();
+console.log(queue);
+queue.enqueue(1); // 1
+queue.enqueue(3); // 2
+queue.enqueue(5); // 3
+queue.dequeue(); // 1
+queue.front(); // 3
+```
