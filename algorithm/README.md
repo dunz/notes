@@ -219,7 +219,7 @@ class LinkedList {
   head = null;
 
   constructor(data) {
-    if (data) {
+    if (![null, undefined].includes(data)) {
       this.head = new Node(data);
       this.length++;
     }
@@ -286,5 +286,4 @@ list.search(0); // 1
 list.search(2); // 3
 list.remove(1);
 list.length; // 2
-
 ```
