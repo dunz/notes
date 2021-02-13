@@ -375,3 +375,90 @@ queue.enqueue(5); // 3
 queue.dequeue(); // 1
 queue.front(); // 3
 ```
+
+## 이진 트리 - Tree
+```js
+class Tree {
+  count = 0;
+  root = null;
+  _add(root, node) {
+    if (!root) return node;
+    const { data } = node;
+    if (data < root.data) {
+      root.left = this._add(root.left, node);
+    } else {
+      root.right = this._add(root.right, node);
+    }
+    return root;
+  }
+  add(data) {
+    const node = new Node(data);
+    if (!this.root) {
+      this.root = node;
+    } else {
+      this._add(this.root, node);
+    }
+    return ++this.count;
+  }
+  _remove(root, data) {
+    let newRoot, exchange, temp;
+    if (!root) return false;
+    if (data < root.data) {
+      root.left = this._remove(root.left, data);
+    } else if (data > root.data) {
+      root.right = this._remove(root.right, data);
+    } else {
+      if (!root.left) {
+        return root.right;
+      } else if (!root.right) {
+        return root.left;
+      } else {
+        exchange = root.left;
+        while (exchange.right) {
+          exchange = exchange.right;
+        }
+        temp = root.data;
+        root.data = exchange.data;
+        exchange.data = temp;
+        root.left = this._remove(root.left, exchange.data);
+      }
+    }
+    return root;
+  }
+  remove(data) {
+    const node = this._remove(this.root, data);
+    if (node) {
+      this.root = node;
+      if (--this.count === 0) {
+        this.root = null;
+      }
+      return true;
+    }
+    return this;
+  }
+}
+
+class Node {
+  data = null;
+  left = null;
+  right = null;
+
+  constructor(data) {
+    this.data = data;
+  }
+}
+
+var tree = new Tree();
+console.log(tree);
+tree.add(5); // 1
+tree.add(3); // 2
+tree.add(4); // 3
+tree.add(2); // 4
+tree.add(7); // 5
+tree.add(6); // 6
+tree.root.left.data; // 3
+tree.root.left.left.data; // 2;
+tree.root.left.right.data; // 4
+tree.remove(3); // true
+tree.root.left.data; // 2
+```
