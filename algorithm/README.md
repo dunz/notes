@@ -376,7 +376,7 @@ queue.dequeue(); // 1
 queue.front(); // 3
 ```
 
-## 이진 검색 트리 - Binary Search Tree
+## 이진 검색 트리 - Binary Search Tree (BST)
 ```js
 class Tree {
   count = 0;
