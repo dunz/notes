@@ -21,6 +21,15 @@ open .
 chsh -s `which zsh`
 ```
 
+### 인스턴스 확인 (웹팩) 및 죽이기
+```sh
+ps -ef | grep webpack
+501 38704     1   0  1:59PM ??         3:00.16 /usr/local/bin/node /Users/djlee/local/test/node_modules/.bin/webpack-dev-server --config config/v2/webpack.config.dev.js --open
+  501 51432     1   0  4:33PM ??         0:25.88 /usr/local/bin/node /Users/djlee/local/test/node_modules/.bin/webpack-dev-server --config config/v2/webpack.config.dev.js --open
+
+kill 38704
+```
+
 ## oh-my-zsh 플러그인 추가하기
 ### install plugin
 zsh-syntax-highlighting
