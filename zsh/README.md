@@ -31,6 +31,10 @@ kill 38704
 ```
 
 ## oh-my-zsh 플러그인 추가하기
+### homebrew 설치하기
+```sh
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 ### oh-my-zsh 설치
 ```sh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
