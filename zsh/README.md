@@ -61,6 +61,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 `open ~/.zshrc`
 zshrc: https://gist.github.com/dunz/afef46f8fdaf81fc64985dae22a4f9ab
 
+### 한글폰트 설치
+D2폰트
+https://github.com/naver/d2codingfont
+
 ### install plugin
 zsh-syntax-highlighting
 ```sh
