@@ -31,6 +31,12 @@ kill 38704
 ```
 
 ## oh-my-zsh 플러그인 추가하기
+### oh-my-zsh 설치
+```sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+```
+
 ### install plugin
 zsh-syntax-highlighting
 ```sh
