@@ -39,6 +39,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 ### .zshrc 붙여넣기
 `open ~/.zshrc`
+zshrc: https://gist.github.com/dunz/afef46f8fdaf81fc64985dae22a4f9ab
 
 ### install plugin
 zsh-syntax-highlighting
