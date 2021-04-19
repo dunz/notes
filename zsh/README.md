@@ -65,6 +65,9 @@ zshrc: https://gist.github.com/dunz/afef46f8fdaf81fc64985dae22a4f9ab
 D2폰트
 https://github.com/naver/d2codingfont
 
+### Item2 환경설정 변경
+Preference => Profile => Text => Font 변경
+
 ### install plugin
 zsh-syntax-highlighting
 ```sh
