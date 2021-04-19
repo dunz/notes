@@ -38,6 +38,19 @@ https://iterm2.com/
 ```sh
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
+
+### zsh 설치하기
+```sh
+# zsh 설치하기
+brew install zsh
+
+# zsh 설치경로 확인하기
+which zsh
+
+# 기본 shell 변경하기
+chsh -s $(which zsh)
+```
+
 ### oh-my-zsh 설치
 ```sh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
