@@ -337,3 +337,14 @@ $> git cherry-pick --continue
 ```sh
 rm -f ./.git/index.lock
 ```
+
+## 리모트 브랜치 이름 변경 후 로컬 적용
+상황: 리모트 브랜치명을 master에서 main 으로 변경
+
+로컬에서 해당 명령어 입력하여 동기화
+```bash
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+git remote set-head origin -a
+```
