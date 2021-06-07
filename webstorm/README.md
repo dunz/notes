@@ -124,4 +124,5 @@ Editor => Color Scheme => Console Colors => ANSI Colors
 - Import Cost
 - Console Log
 - Prettier
+- Quokka
 - Better Comments
