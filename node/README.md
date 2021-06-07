@@ -58,7 +58,7 @@ npm outdated        // 프로젝트 설치 패키지
 npm outdated -g     // 전역 설치 패키지
 
 ```
-// 원격저장소 복사(깃 히스토리 X) https://github.com/Rich-Harris/degit
+### 원격저장소 복사(깃 히스토리 X) https://github.com/Rich-Harris/degit
 ```sh
 npx degit [저장소명] [?로컬저장소명]
 npx degit [저장소명][?#브랜치명] [?로컬저장소명]  // 해당 브랜치 복사 (기본 master)
