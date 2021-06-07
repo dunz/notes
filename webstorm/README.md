@@ -119,6 +119,7 @@ Editor => Color Scheme => Console Colors => ANSI Colors
 - Korean Langguage Pack
 - Material Theme UI
 - Atom Material Icons
+- Rainbow Brackets
 - Import Cost
 - Console Log
 - Prettier
