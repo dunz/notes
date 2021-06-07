@@ -120,6 +120,7 @@ Editor => Color Scheme => Console Colors => ANSI Colors
 - Material Theme UI
 - Atom Material Icons
 - Rainbow Brackets
+- HighlightBracketPair
 - Import Cost
 - Console Log
 - Prettier
