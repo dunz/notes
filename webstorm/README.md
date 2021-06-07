@@ -114,3 +114,11 @@ Editor => Color Scheme => Console Colors => ANSI Colors
 ## 단축키
 - 같은 객체 일괄 변경: `Shift` + `F6`
 - 같은 텍스트 동시 선택: `Ctrl` + `Command` + `G`
+
+## 유용한 확장도구
+Korean Langguage Pack
+Material Theme UI
+Atom Material Icons
+Import Cost
+Console Log
+Prettier
