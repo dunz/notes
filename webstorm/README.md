@@ -116,9 +116,9 @@ Editor => Color Scheme => Console Colors => ANSI Colors
 - 같은 텍스트 동시 선택: `Ctrl` + `Command` + `G`
 
 ## 유용한 확장도구
-Korean Langguage Pack
-Material Theme UI
-Atom Material Icons
-Import Cost
-Console Log
-Prettier
+- Korean Langguage Pack
+- Material Theme UI
+- Atom Material Icons
+- Import Cost
+- Console Log
+- Prettier
