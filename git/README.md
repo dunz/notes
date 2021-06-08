@@ -348,3 +348,13 @@ git fetch origin
 git branch -u origin/main main
 git remote set-head origin -a
 ```
+
+## 타겟 브랜치의 최신 커밋 해쉬 가져오기
+```bash
+git rev-parse remotes/origin/[타겟브랜치]
+```
+
+## 타겟 브랜치가 기준 브랜치에서 갈라졌던 커밋 해쉬를 가져오기
+```bash
+git merge-base remotes/origin/[기준브랜치] remotes/origin/[타겟브랜치]
+```
