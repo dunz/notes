@@ -126,3 +126,5 @@ Editor => Color Scheme => Console Colors => ANSI Colors
 - Prettier
 - Quokka
 - Better Comments
+- CamelCase
+- Key Promoter X
