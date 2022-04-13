@@ -138,6 +138,11 @@ git fetch [remotename]
 git checkout -b [branchname]
 ```
 
+##### 브랜치 일괄삭제
+```sh
+git branch | grep "<pattern>" | xargs git branch -D
+```
+
 ## Reset
 ```sh
 git reset [commit id] --hard // 특정커밋으로 되돌리기 --hard 특정 커밋 이후 수정된파일 모두 사라짐
