@@ -1,6 +1,6 @@
-`firebase-messaging-sw.js`
 
 모듈 방식
+`firebase-messaging-sw.js`
 ```ts
 import { initializeApp } from 'firebase/app';
 import { isSupported, getMessaging } from 'firebase/messaging';
