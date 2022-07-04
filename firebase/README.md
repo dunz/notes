@@ -49,7 +49,7 @@ function getNotificationPermissionState() {
 ```
 
 모듈방식 서비스워커 오픈
-```
+```ts
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker
     .register('/firebase-messaging-sw.js', { type: 'module' })
