@@ -132,3 +132,9 @@ unset [:변수명]
   5. Set-ExecutionPolicy Bypass --- yes
   6. .\install.ps1
   7. Set-ExecutionPolicy Default
+
+#### npm install 권한 에러시
+```sh
+sudo chown -R $(whoami) /Users/djlee/Work/[현재디렉토리]
+
+```
