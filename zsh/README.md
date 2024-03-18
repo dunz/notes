@@ -138,3 +138,15 @@ unset [:변수명]
 sudo chown -R $(whoami) /Users/djlee/Work/[현재디렉토리]
 
 ```
+
+### 트리구조의 폴더구조 텍스트로 뽑기
+```
+// tree 가 없다면 먼저 설치
+berw install tree
+
+// -I : 제외 설정
+// sed : NBSP 로 공백이 생성되는데 이걸 '' 문자열로 치환해줌
+// > : 결과물 파일로 생성
+tree -I 'node_modules|dist|images|animations|*.json|*.pem|*.md' | sed 's/\xC2\xA0/ /g' > structure.txt
+
+```
