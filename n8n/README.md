@@ -1,5 +1,13 @@
 # n8n
 
+## n8n 스타터 킷으로 로컬에 설치하여 빠르게 시작
+https://github.com/n8n-io/self-hosted-ai-starter-kit
+```
+git clone https://github.com/n8n-io/self-hosted-ai-starter-kit.git
+cd self-hosted-ai-starter-kit
+docker compose up
+```
+
 ## 텔레그램 봇 chat id 확인하는 법
 텔레그램을 전송하려면 chat id가 필요한데 확인하기 까다롭다  
 아래 주소를 접속한 상태에서 챗봇에 메시지를 보내면 확인 가능하다
