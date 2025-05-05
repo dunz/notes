@@ -8,3 +8,8 @@
 https://api.telegram.org/bot(봇token)/getUpdates
 ```
 
+## 자체 호스팅 후보 목록
+- https://fly.io/
+- https://render.com/
+- https://railway.com/
+- https://www.coolify.io/
