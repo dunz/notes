@@ -12,6 +12,11 @@ docker compose up
 텔레그램을 전송하려면 chat id가 필요한데 확인하기 까다롭다  
 아래 주소를 접속한 상태에서 챗봇에 메시지를 보내면 확인 가능하다
 
+## Gmail 어카운트 추가하기
+`[https://console.cloud.google.com/](https://console.cloud.google.com/apis/credentials?inv=1&invt=Abw_Tg&project=n8nproject-458807)`
+
+
+
 ```
 https://api.telegram.org/bot(봇token)/getUpdates
 ```
