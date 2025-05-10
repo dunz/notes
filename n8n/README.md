@@ -15,6 +15,10 @@ docker compose up
 ## Gmail 어카운트 추가하기
 [https://console.cloud.google.com/](https://console.cloud.google.com/apis/credentials?inv=1&invt=Abw_Tg&project=n8nproject-458807)
 
+oAuth 클라이언트 ID 추가하기
+
+<img width="952" alt="image" src="https://github.com/user-attachments/assets/40ff4587-1cee-43c1-90a9-bcf7da50bd3e" />
+
 
 
 ```
