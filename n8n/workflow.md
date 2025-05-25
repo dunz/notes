@@ -64,5 +64,81 @@ JSON:
 Method: GET
 URL: https://queue.fal.run/fal-ai/elevenlabs/requests/{{ $json.request_id }}
 ```
+8. 이미지 영상 생성하기
+  - Basic llm chain 노드 사용
+    - 모델, output 형식 지정
+```
+// prompt
+
+주어진 스크립트에 따라 매우 몰입감 있고 영화적인 장면 프롬프트를 5장 생성해 주세요.
+
+요구사항:
+1. 생생하고 감각적인 동작 중심 묘사를 사용할 것 (예: 움켜잡다, 밀치다, 달리다, 쓰러지다 등)
+2. 스크립트에 따라 논리적인 순서로 전개될 것
+3. 평범한 일상보다는 독특하고 극적이며 시각적으로 강렬한 장면 위주로 구성 할 것
+4. 몰입감을 높이기 위해 시네마틱 샷 등의 키워드를 포함할 것
+5. 각 프롬프트는 200자 이내로 상세하게 작성
+6. 큰따옴표("")는 사용하지 않음
+7. 프롬프트는 영어로 생성함
+```
+9. 이미지 생성을 위한 나레이션으로 장면 생성용 프롬프트 5개 생성하기
+  - gemini 2.5 flash 모델 사용
+  - output 으로 Item List Output Parser 사용
+11. 만든 프롬프트로 이미지 생성 api 호출 (Recraft)
+```
+Method: POST
+URL: https://queue.fal.run/fal-ai/recraft-v3
+
+Header1:
+Name: Authorization
+Value: Key $FAL_AI_API_KEY
+
+Header2:
+Name: Content-Type
+Value: application/json
+
+JSON:
+{
+  "prompt": "{{ $json.text }}",
+  "image_size": "portrait_16_9",
+  "style": "digital_illustration/neon_calm"
+}
+```
+12. api 응답 대기를 위한 delay 주기
+13. 이미지 url 가져오기
+```
+Method: GET
+URL: https://queue.fal.run/fal-ai/recraft-v3/requests/{{ $json.request_id
+```
+14. 영상 생성하기
+```
+Method: POST
+URL: https://queue.fal.run/fal-ai/kling-video/v1.6/standard/image-to-video
+
+Header1:
+Name: Authorization
+Value: Key $FAL_AI_API_KEY
+
+Header2:
+Name: Content-Type
+Value: application/json
+
+JSON:
+{
+  "prompt": "{{ $( 'Image Prompt').item.json.text }}",
+  "image_url": "{{ $json.images[0].url }}",
+  "duration": "5",
+  "aspect_ratio": "9:16",
+  "negative_prompt": "blur, distort, and low quality"
+}
+```
+
+15. 영상 생성시까지 대기하기
+16. 영상 주소 가져왹
+```
+Method:
+GET
+URL: https://queue.fal.run/fal-ai/kling-video/requests/{{ $json.request_id }}
+```
 
   
