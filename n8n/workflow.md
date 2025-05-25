@@ -39,7 +39,7 @@ URL: https://queue.fal.run/fal-ai/elevenlabs/tts/turbo-v2.5
 
 Header1:
 Name: Authorization
-Value: Key SAPI_KEY
+Value: Key $FAL_AI_API_KEY
 
 Header2:
 Name: Content-Type
@@ -51,3 +51,4 @@ JSON:
   "language_code": "ko"
 }
 ```
+- fal.ai: https://fal.ai/ - 멀티모달 모델을 웹이나 API를 통해 바로 사용할
