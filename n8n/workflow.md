@@ -32,7 +32,7 @@
 4. 가져올 시트를 선택후 필터 추가
   - Status가 준비인것 필터 추가
   - return on first matching row 옵션 추가
-5. 나레이션 생성
+5. 나레이션 생성을 위한 elevenlabs api 호출
 ```
 Method: POST
 URL: https://queue.fal.run/fal-ai/elevenlabs/tts/turbo-v2.5
@@ -52,4 +52,17 @@ JSON:
 }
 ```
 - fal.ai: https://fal.ai/ - 멀티모달 모델을 웹이나 API를 통해 바로 사용할
+  - https://fal.ai/models/fal-ai/elevenlabs/tts/turbo-v2.5
+  - elevenlabs 의 turbo 2.5 모델 사용 (호출당 0.01달러 차감)
+  - 추후 가격 최적화를 위해 elevenlabs api 를 직접 연동하는것을 고려(초기 1달러 제공)
+    - 학습용/테스트용: Fal.ai 경유 사용도 무방
+    - 서비스/제품화 목적: ElevenLabs API 직접 사용하는 것이 훨씬 좋음 (비용, 성능, 유연성 면에서 유리)
 - api 키와 헤더 및 바디를 설정
+6. wait 노드로 초 지정하여 음성 생성 기다리기
+7. 생성한 나레이션 음성 가져오기
+```
+Method: GET
+URL: https://queue.fal.run/fal-ai/elevenlabs/requests/{{ $json.request_id }}
+```
+
+  
