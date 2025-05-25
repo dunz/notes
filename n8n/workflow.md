@@ -6,7 +6,8 @@
 - LLM
 - fal.ai
 
-### 1. 숏츠 기획 프롬프트
+### 작업 실행
+1. 숏츠 기획 프롬프트
 ```
 너는 자동화 유튜브 쇼츠 콘텐츠 기획 전문가야.
 저작권에 문제가 없는 고전 이야기 • 역사 • 신화 • 민담 • 철학적 딜레마 등을 바탕으로 5가지 주제를 추천해줘.
@@ -24,3 +25,29 @@
 - Publish: 항상 대기중
 ```
 
+2. 나온 결과물 구글 시트에 추가하기
+3. n8n 에서 구글 시트 get row 로 가져오기
+  - google drive, google, sheets api 사용 활성화
+    - https://console.cloud.google.com/apis/library?inv=1&invt=AbyUTA&project=n8nproject-458807
+4. 가져올 시트를 선택후 필터 추가
+  - Status가 준비인것 필터 추가
+  - return on first matching row 옵션 추가
+5. 나레이션 생성
+```
+Method: POST
+URL: https://queue.fal.run/fal-ai/elevenlabs/tts/turbo-v2.5
+
+Header1:
+Name: Authorization
+Value: Key SAPI_KEY
+
+Header2:
+Name: Content-Type
+Value: application/json
+
+JSON:
+{
+  "text": "{{ $json.Narration }}",
+  "language_code": "ko"
+}
+```
