@@ -415,6 +415,10 @@ curl -X POST https://api.creatomate.com/v1/renders \
   }
 }'
 ```
-26. 구글 시트 업데이트 로우
+26. 구글 시트에 완성된 url 업데이트
+  - google sheet node 사용
+  - map each column manualy row_number
+  - 초반에 가져온 구글시트 row number 지정
+  - status "생성완료" 처리
 
   
