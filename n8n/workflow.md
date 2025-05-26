@@ -181,8 +181,9 @@ JSON:
 19. 효과음 생성 대기
 20. 효과음 가져오기
 21. 3개의 input merge 하기
-22. Aggregate 하기
-  - merge된 것을 data 의 배열로 일정하게 모음
+  - 총 11개의 아이템으로 머지
+23. Aggregate 하기
+  - 11개의 input을 1개의 output으로 합침
 23. field edit 하기
 - creatoimate 에 호출할때 필요한 인자 구성
 24. creatomate 템플릿 만들기
