@@ -185,7 +185,7 @@ JSON:
 23. Aggregate 하기
   - 11개의 input을 1개의 output으로 합침
 23. field edit 하기
-- creatoimate 에 호출할때 필요한 인자 구성
+  - creatomate 에 호출할때 필요한 인자 구성
 ```
 {
   "scene1": "{{ $json.data[1].video.url }}",
@@ -392,6 +392,8 @@ JSON:
 }
 ```
 25. curl 로 api 호출 json 구성
+ - creatomate api key 추가(Bearer 토큰)
+ - json 인자값에 이전에 받은 소스 추가
 ```
 curl -X POST https://api.creatomate.com/v1/renders \
      -H "Content-Type: application/json" \
@@ -413,5 +415,6 @@ curl -X POST https://api.creatomate.com/v1/renders \
   }
 }'
 ```
-26. 호출 후 
+26. 구글 시트 업데이트 로우
+
   
