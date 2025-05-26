@@ -140,5 +140,262 @@ Method:
 GET
 URL: https://queue.fal.run/fal-ai/kling-video/requests/{{ $json.request_id }}
 ```
+17. 효과음 프롬프트 생성
+```
+// prompt
+이미지 프롬프트에 어울리는 효과음을 생성해주세요.
 
+요구사항 :
+1. 결과물은 영어로 5-10 단어로 간결하게 생성할 것
+2. 큰따옴표("")는 사용하지 않음
+3. 사람의 목소리가 생성될 가능성이 있는 프롬프트가 나와서는 안 됨
+4. 프롬프트는 영어로 생성함
+5. Only Plain Text
+
+예시:
+A howling desert wind sweeping across the dunes
+
+이미지 프롬프트:
+{{ $('Image Prompt').item.json.text }}
+```
+
+18. 효과음 생성
+```
+Method: POST
+URL: https://queue.fal.run/fal-ai/elevenlabs/sound-effects
+
+Header1:
+Name: Authorization
+Value: Key $FAL_AI_API_KEY
+
+Header2:
+Name: Content-Type
+Value: application/json
+
+JSON:
+{
+  "text": "{{ $json.text }}",
+  "duration_seconds": "5"
+}
+```
+19. 효과음 생성 대기
+20. 효과음 가져오기
+21. 3개의 input merge 하기
+22. Aggregate 하기
+  - merge된 것을 data 의 배열로 일정하게 모음
+23. field edit 하기
+- creatoimate 에 호출할때 필요한 인자 구성
+24. creatomate 템플릿 만들기
+```
+{
+  "output_format": "mp4",
+  "width": 1080,
+  "height": 1920,
+  "frame_rate": "30 fps",
+  "elements": [
+    {
+      "id": "31f4c807-79b9-43df-b19d-ae6287702fbe",
+      "name": "Composition1",
+      "type": "composition",
+      "track": 1,
+      "time": 0,
+      "elements": [
+        {
+          "id": "fb46fa9b-6df3-408c-b246-bbda7770a700",
+          "name": "scene1",
+          "type": "video",
+          "track": 1,
+          "time": 0,
+          "duration": null,
+          "width": 1080,
+          "height": 1920,
+          "source": "",
+          "dynamic": true
+        },
+        {
+          "id": "299b0b17-d2ed-4e17-b048-8cc7191b74c6",
+          "name": "audio1",
+          "type": "audio",
+          "track": 2,
+          "time": 0,
+          "duration": null,
+          "source": "",
+          "dynamic": true
+        }
+      ]
+    },
+    {
+      "id": "d567cdeb-3496-4c1a-abdd-5c49ede973db",
+      "name": "Composition2",
+      "type": "composition",
+      "track": 1,
+      "duration": 5,
+      "elements": [
+        {
+          "id": "cf53edb6-744a-49ca-86a2-51c18c53cb5d",
+          "name": "scene2",
+          "type": "video",
+          "track": 1,
+          "time": 0,
+          "duration": null,
+          "width": 1080,
+          "height": 1920,
+          "source": "",
+          "dynamic": true
+        },
+        {
+          "id": "23068365-2862-4832-80d9-88a9a38ea478",
+          "name": "audio2",
+          "type": "audio",
+          "track": 2,
+          "time": 0,
+          "duration": null,
+          "source": "",
+          "dynamic": true
+        }
+      ]
+    },
+    {
+      "id": "8c435d6b-42f9-42ae-bb27-442209135a73",
+      "name": "Composition3",
+      "type": "composition",
+      "track": 1,
+      "elements": [
+        {
+          "id": "d53c7075-47d6-4008-a25f-3af3be01d1e7",
+          "name": "scene3",
+          "type": "video",
+          "track": 1,
+          "time": 0,
+          "duration": null,
+          "width": 1080,
+          "height": 1920,
+          "source": "",
+          "dynamic": true
+        },
+        {
+          "id": "c81653a9-f21d-48b8-a773-493ec6872360",
+          "name": "audio3",
+          "type": "audio",
+          "track": 2,
+          "time": 0,
+          "duration": null,
+          "source": "",
+          "dynamic": true
+        }
+      ]
+    },
+    {
+      "id": "bdc13248-7b5d-43e4-a683-e359bfe2dbab",
+      "name": "Composition4",
+      "type": "composition",
+      "track": 1,
+      "elements": [
+        {
+          "id": "50327005-ea46-4c18-b996-9de1d7667431",
+          "name": "scene4",
+          "type": "video",
+          "track": 1,
+          "time": 0,
+          "duration": null,
+          "width": 1080,
+          "height": 1920,
+          "source": "",
+          "dynamic": true
+        },
+        {
+          "id": "326019de-b935-41d9-bbd8-4bbfe9f6b475",
+          "name": "audio4",
+          "type": "audio",
+          "track": 2,
+          "time": 0,
+          "duration": null,
+          "source": "",
+          "dynamic": true
+        }
+      ]
+    },
+    {
+      "id": "bded53b4-b93c-43b7-8e37-7fed5b47573e",
+      "name": "Composition5",
+      "type": "composition",
+      "track": 1,
+      "elements": [
+        {
+          "id": "1733d369-fe54-41bf-8448-8220f4a1af86",
+          "name": "scene5",
+          "type": "video",
+          "track": 1,
+          "time": 0,
+          "duration": null,
+          "width": 1080,
+          "height": 1920,
+          "source": "",
+          "dynamic": true
+        },
+        {
+          "id": "b909ee5d-6743-497b-a66e-f2139e96716c",
+          "name": "audio5",
+          "type": "audio",
+          "track": 2,
+          "time": 0,
+          "duration": null,
+          "source": "",
+          "dynamic": true
+        }
+      ]
+    },
+    {
+      "id": "1b4181d2-c566-431a-bbd8-e31f731f55b4",
+      "name": "narration",
+      "type": "audio",
+      "track": 2,
+      "time": 0,
+      "source": "",
+      "dynamic": true
+    },
+    {
+      "id": "8d31bdad-193f-4538-9729-ca9d83d40406",
+      "name": "subtitle",
+      "type": "text",
+      "track": 3,
+      "time": 0,
+      "y": "70.1132%",
+      "width": "93.0002%",
+      "height": "17.5593%",
+      "font_family": "Noto Sans KR Bold",
+      "background_color": "#000000",
+      "transcript_source": "narration",
+      "transcript_color": "#ffffff",
+      "fill_color": "#ffffff",
+      "stroke_color": "#000000",
+      "stroke_width": 2,
+      "clip": true
+    }
+  ]
+}
+```
+25. curl 로 api 호출 json 구성
+```
+curl -X POST https://api.creatomate.com/v1/renders \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer 8a9d8c5842ca4298ac2cb234f6d07b9f715f99785183bb94b3f749d43a88d87bc1840711296916c13c3233b2daf19323" \
+     -d '{
+  "template_id": "04240e6b-542c-4e1a-ad19-5bc85fae2b49",
+  "modifications": {
+    "scene1.source": "",
+    "audio1.source": "",
+    "scene2.source": "",
+    "audio2.source": "",
+    "scene3.source": "",
+    "audio3.source": "",
+    "scene4.source": "",
+    "audio4.source": "",
+    "scene5.source": "",
+    "audio5.source": "",
+    "narration.source": ""
+  }
+}'
+```
+26. 호출 후 
   
