@@ -421,8 +421,12 @@ curl -X POST https://api.creatomate.com/v1/renders \
   - 초반에 가져온 구글시트 row number 지정
   - status "생성완료" 처리
   - 
-27. 이후 발행 프로세스
+
+이후 발행 프로세스
 <img width="567" alt="image" src="https://github.com/user-attachments/assets/a0cd077f-625a-4eb2-94c4-662931fe5b2f" />
+1. 스케쥴 트리거 추가
+2. 구글 시트 url 가져오기
+3. url 호출
 
 
   
