@@ -427,6 +427,9 @@ curl -X POST https://api.creatomate.com/v1/renders \
 1. 스케쥴 트리거 추가
 2. 구글 시트 url 가져오기
 3. url 호출
+4. 유튜브 업로드
+  - youtube v3 api 활성화 후 범위 설정필요
+<img width="1714" alt="image" src="https://github.com/user-attachments/assets/3c867272-c8e7-4077-ac5e-e22761bad15c" />
 
 
   
