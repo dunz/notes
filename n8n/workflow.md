@@ -186,6 +186,21 @@ JSON:
   - 11개의 input을 1개의 output으로 합침
 23. field edit 하기
 - creatoimate 에 호출할때 필요한 인자 구성
+```
+{
+  "scene1": "{{ $json.data[1].video.url }}",
+  "scene2": "{{ $json.data[2].video.url }}",
+  "scene3": "{{ $json.data[3].video.url }}",
+  "scene4": "{{ $json.data[4].video.url }}",
+  "scene5": "{{ $json.data[5].video.url }}",
+  "sound1": "{{ $json.data[6].audio.url }}",
+  "sound2": "{{ $json.data[7].audio.url }}",
+  "sound3": "{{ $json.data[8].audio.url }}",
+  "sound4": "{{ $json.data[9].audio.url }}",
+  "sound5": "{{ $json.data[10].audio.url }}",
+  "narration": "{{ $json.data[0].audio.url }}"
+} 
+```
 24. creatomate 템플릿 만들기
 ```
 {
