@@ -431,5 +431,27 @@ curl -X POST https://api.creatomate.com/v1/renders \
   - youtube v3 api 활성화 후 범위 설정필요
 <img width="1714" alt="image" src="https://github.com/user-attachments/assets/3c867272-c8e7-4077-ac5e-e22761bad15c" />
 
+6. 업로드된 영상에 코멘트 달기
+```
+Method: POST
+URL: https://www.googleapis.com/youtube/v3/commentThreads?part=snippet
+
+Authentication: Youtube OAuth2 API
+
+Name: Content-Type
+Value: application/json
+
+JSON:
+{
+  "snippet": {
+    "videoId": "{{ $json.uploadId }}",
+    "topLevelComment": {
+      "snippet": {
+        "textOriginal": "{{ $( 'Download Video').item.json.Caption }}"
+      }
+    }
+  }
+}
+```
 
   
